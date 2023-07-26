@@ -1,0 +1,39 @@
+<%- include("navbar.ejs")%>
+    <br>
+    <br>
+    <form action="/save_user" method="post">    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-5 border p-3">
+                <h3 class="text-center">-New User Create Account-</h3>
+                <br>
+                <b>User Name</b>
+                <input type="text" name="user_name" class="form-control" required>
+                <br>
+                <b>Mobile Number</b>
+                <input type="number" name="user_mobile" class="form-control" required>
+                <br>
+                <b>User Email</b>
+                <input type="email" name="user_email" class="form-control" required>
+                <br>
+                <b>Password</b>
+                <input type="password" name="user_password" class="form-control" required>
+                <br>
+                <div class="text-right">
+                <button class="btn btn-primary ">Login Now</button>
+            </div>
+            <h6>Allready Account, <a href="/Login">Login Now</a></h6>
+            </div>
+        
+        </div>
+    </div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <%- include("footer.ejs")%>

@@ -1,0 +1,24 @@
+<%- include("navbar.ejs")%>
+    <form action="/admin/update_category/<%= cats.category_id%>" method="post">
+        <div class="container-fluid p-5 bg-white ">
+            <div class="row">
+                <div class="col-md-12  text-center">
+                    <h3>Update Category</h3>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Category Name
+                    <input type="text" name="category_name" value="<%= cats.category_name%>" class="form-control">
+                </div>
+                <div class="col-md-6 mt-3">
+                    Category Details
+                    <textarea name="category_details"  class="form-control"></textarea>
+                </div>
+                <div class="col-md-6 mt-3 text-center">
+                    <button class="btn btn-primary ">SAVE CATEGORY</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+
+    <%- include("footer.ejs")%>

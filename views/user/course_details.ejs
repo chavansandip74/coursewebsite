@@ -1,0 +1,80 @@
+<%- include("navbar.ejs")%>
+<br>
+<br>
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-12">
+            <h3 >Course Details</h3>
+        </div>
+        <div class="col-md-5">
+            <img src="/uploads/<%=course_det.course_img%>" width="100%" >
+        </div>
+        <div class="col-md-7">
+            <h3 style="font-weight: bold;"><%=course_det.course_name%></h3>
+            <h5 style="font-weight: bold;">In just <%=course_det.course_duration%></h5>
+            <br>
+            <h2 style="font-weight: bold;">&#8377;<%=course_det.course_price%></h2>
+            <br>
+            <h5 style="font-weight: bold;">By <%=course_det.course_mentor%> sir</h5>
+            <br>
+            <h6 style="font-weight: bold;"><%=course_det.course_platform%></h6>
+            <br>
+            <% if(is_purchase){
+              %>
+              <button class="btn btn-dark btn-lg">Allready Purchase</button>
+              <%
+            }
+            else
+            {%>
+            <a href="/conform_seat/<%=course_det['course_id']%>">
+            <button class="btn btn-dark btn-lg">Conform Your Seats</button>
+        </a>
+        <%}%>
+            <% if(course_det.course_sample_video!=""){%>
+            <button style="background-color: blue;color: white; font-size: 30px; width: 70px;
+            height: 70px;border-radius: 50px; position: absolute; right: 20px; top: 40px;
+            "data-toggle="modal" data-target="#videoModel">
+             <i class="fa fa-play"></i></button>
+                <%}%>
+        </div>
+        <div class="col-md-12">
+            <h6><%=course_det.course_details.replaceAll('\n',"<br>")%></h6>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+  
+  <!-- The Modal -->
+  <div class="modal" id="videoModel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Demo model</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+        <video src="/uploads/<%=course_det.course_sample_video%>" width="100%" controls></video>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <br>
+<br>
+<br>
+<br>
+
+<%- include("footer.ejs")%>

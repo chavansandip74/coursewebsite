@@ -1,0 +1,62 @@
+<%- include("navbar.ejs")%>
+    <form action="/admin/save_category" method="post">
+        <div class="container-fluid p-5 bg-white ">
+            <div class="row">
+                <div class="col-md-12  text-center">
+                    <h3>Manage Category</h3>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Category Name
+                    <input type="text" name="category_name" class="form-control">
+                </div>
+                <div class="col-md-6 mt-3">
+                    Category Details
+                    <textarea name="category_details" class="form-control"></textarea>
+                </div>
+                <div class="col-md-6 mt-3 text-center">
+                    <button class="btn btn-primary ">SAVE CATEGORY</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <div class="container-fluid">
+        <table class="table table-sm table-bordered">
+            <tr>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>SN</th>
+                <th>Name</th>
+                <th>Details</th>
+            </tr>
+            <% for(var i=0;i<cats.length;i++){ %>
+                <tr>
+                    <td width="5%" style="white-space: nowrap;">
+                        <a href="/admin/edit_cats/<%=cats[i].category_id %>"><button class="btn btn-primary"><i
+                                    class="fa fa-edit"></i></button></a>
+
+                    </td>
+                    <td width="5%" style="white-space: nowrap;">
+                        <a href="/admin/delete_cats/<%=cats[i].category_id %>"><button class="btn btn-danger"><i
+                                    class="fa fa-trash"></i></button></a>
+                    </td>
+                    <td>
+                        <%=i+1%>
+                    </td>
+                    <td>
+                        <%= cats[i].category_name%>
+                    </td>
+                    <td width="70%">
+                        <div style="white-space: nowrap; text-overflow: ellipsis;">
+                            <%= cats[i].category_details%>
+                        </div>
+                    </td>
+
+                </tr>
+                <%}%>
+        </table>
+    </div>
+
+    <%- include("footer.ejs")%>

@@ -1,0 +1,41 @@
+<%- include("navbar.ejs")%>
+<br>
+<br>
+<div class="container">
+    <div class="row justify-content-center ">
+        <div class="col-md-12 mb-4">
+            <h3 class="text-center">-All Courses-</h3>
+        </div>
+        <% for(var i=0;i<courses.length;i++){%>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-heder text-center">
+                        <b>
+                            <%=courses[i].course_name%>
+                        </b>
+                    </div>
+                    <div class="card-body m-0 p-0">
+                        <img src="/uploads/<%=courses[i].course_img%>" width="100%">
+
+                    </div>
+                    <div class="card-footer bg-dark text-white">
+                        <h3>&#8377;<%=courses[i].course_price%>
+                                <a href="/course_details/<%=courses[i].course_id%>">
+                                    <button class="btn btn-outline-light float-right">View Details</button>
+                                </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<%- include("footer.ejs")%>

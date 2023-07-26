@@ -1,0 +1,61 @@
+<%- include("navbar.ejs")%>
+    <br>
+    <br>
+ 
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 ">
+                    <h1 class="text-center">-Conform Your Seat-</h1>
+                </div>
+                <br>
+                <div class="col-md-12 mb-5 border shadow p-4">
+                    <h4 class="text-center">
+                        <%= course_det.course_name%>
+                    </h4>
+                    <h5 class="text-center"><%= course_det.course_duration%></h5>
+                    <h5 class="text-center"><%= course_det.course_mentor%></h5>
+                    <h3 class="text-center">&#8377;<%= course_det.course_price%>.00</h3>
+                    <div class="text-center">
+                       <button class="btn btn-primary" id="rzp-button1">Pay & Conform Seat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br>
+    <br>
+    <br>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_XW9VAx9XR4VH66", // Enter the Key ID generated from the Dashboard
+    "amount": "<%= course_det.course_price*100%>", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Prime Courses", //your business name
+    "description": "<%=course_det.course_name%>",
+    "image": "https://music.youtube.com/img/on_platform_logo_dark.svg",
+    //"order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "http://localhost:1000/pay_course_fee/<%= course_det.course_id%>",
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        "name": "<%=user_det['user_name']%>", //your customer's name
+        "email": "<%=user_det['user_email']%>",
+        "contact": "<%=user_det['user_mobile']%>" //Provide the customer's phone number for better conversion rates 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+<br>
+<br>
+
+<br>
+
+    <%- include("footer.ejs")%>

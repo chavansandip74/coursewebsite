@@ -1,0 +1,51 @@
+<%- include("navbar.ejs")%>
+    <div class="container-fluid p-5 bg-white ">
+        <div class="row">
+            <div class="col-md-12  text-center">
+                <h3>Courses List</h3>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm">
+                    <tr>
+                        <th>Details</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>SN</th>
+                        <th>User Name</th>
+                        <th>Course_name</th>
+                        <th>Date</th>
+                        <th>Duration</th>
+                        <th>Mentor</th>
+                        <th>Platform</th>
+                        <th>Amount</th>
+                    </tr>
+                    <% for(var i=0;i<course.length;i++)
+                    {
+                        %>
+                        <tr>
+                           
+                            <td width="3%" style="white-space: nowrap;">
+                                <a href="/admin/course_details/<%=course[i].course_id%>"> <button class="btn btn-success"><i class="fa fa-print"></i></button></a>
+                            </td>
+                            <td width="3%" style="white-space: nowrap;">
+                                <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                            </td>
+                            <td width="3%" style="white-space: nowrap;">
+                                <a href="/admin/delete_course/<%=course[i].course_id %>"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                            </td>
+                            <td><%=i+1%></td>
+                            <td><%=course[i].course_name%></td>
+                            <td><%=course[i].course_name%></td>
+                            <td><%=course[i].category_name%></td>
+                            <td><%=course[i].course_duration%></td>
+                            <td><%=course[i].course_mentor%></td>
+                            <td><%=course[i].course_platform%></td>
+                            <td><big><b>&#8377;<%=course[i].course_price%>.00</b></big></td>
+                        </tr>
+                   <% }%>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <%- include("footer.ejs")%>

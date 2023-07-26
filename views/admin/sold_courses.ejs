@@ -1,0 +1,49 @@
+<%- include("navbar.ejs")%>
+    <div class="container-fluid p-5 bg-white ">
+        <div class="row">
+            <div class="col-md-12  text-center">
+                <h3>All Sold Courses List</h3>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm">
+                    <tr>
+                        <th>Details</th>
+
+                        <th>SN</th>
+                        <th>User Name</th>
+                        <th>Course_name</th>
+                        <th>Duration</th>
+                     
+                        <th>Platform</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Transaction Id</th>
+                    </tr>
+                    <% for(var i=0;i<course.length;i++)
+                    {
+                        %>
+                        <tr>
+                           
+                            <td width="3%" style="white-space: nowrap;">
+                                <a href="/admin/course_details/<%=course[i].course_id%>"> <button class="btn btn-success"><i class="fa fa-print"></i></button></a>
+                            </td>
+                            
+                            
+                            <td><%=i+1%></td>
+                            <td><%=course[i].user_name%></td>
+                            <td><%=course[i].course_name%></td>
+                            <td><%=course[i].course_duration%></td>
+                    
+                            <td><%=course[i].course_platform%></td>
+                            <td><%=course[i].purchase_date%></td>
+                            <td><big><b>&#8377;<%=course[i].amount%>.00</b></big></td>
+                            <td><%=course[i].transaction_id%></td>
+                            
+                        </tr>
+                   <% }%>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <%- include("footer.ejs")%>

@@ -1,0 +1,53 @@
+<%- include("navbar.ejs")%>
+<br>
+<br>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+        <h3>My Profile</h3>
+        <br>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-borderd">
+                <tr>
+                    <th>Edit</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Gmail</th>
+                    <th>Login Password</th>
+
+                </tr>
+                <% for(var i=0;i<user.length;i++){%>
+                  <tr>
+                    <td width="5%" style="white-space: nowrap;">
+                        <a href="/admin/edit_slide/<%=user[i].user_id%>"><button class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+                    </td>
+                    
+                   <td><%=user[i].user_name%></td>
+                   <td><%=user[i].user_mobile%></td>
+                   <td><%=user[i].user_email%></td>
+                   <td><%=user[i].user_password%></td>
+                  </tr>    
+                
+               <% }%>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%- include("footer.ejs")%>

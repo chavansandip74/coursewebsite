@@ -1,0 +1,31 @@
+<%- include("navbar.ejs")%>
+    <br>
+    <br>
+    <br>
+    <form action="/do_login" method="post">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-5 border p-3">
+                    <h3 class="text-center">-User Login-</h3>
+                    <br>
+                    <b>Mobail Number</b>
+                    <input type="number" name="user_mobile" class="form-control" required>
+                    <br>
+                    <b>Password</b>
+                    <input type="password" name="user_password" class="form-control" required>
+                    <br>
+                    <div class="text-right">
+                    <button class="btn btn-primary ">Login Now</button>
+                    </div>
+                    <h6>New User, <a href="/register">Create Account</a></h6>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+    <br>
+    
+    
+    <%- include("footer.ejs")%>

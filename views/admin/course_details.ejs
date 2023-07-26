@@ -1,0 +1,70 @@
+<%- include("navbar.ejs")%>
+    <div class="container-fluid p-5 bg-white ">
+        <div class="row">
+            <div class="col-md-12  text-center">
+                <h3 class="alert alert-primary"><%=course.course_name %></h3>
+            </div>
+            <div class="col-md-6">
+                <div class="container-fliud">
+                    <div class="row">
+                        <div class="col-md-12 mb-2 border-bottom" >
+                            Course Name
+                            <b class="d-block ps-3"><%=course.course_name %></b>
+                        </div>
+                        <div class="col-md-12 mb-3  border-bottom">
+                            Category Name
+                            <b class="d-block ps-3"><%=course.category_name %></b>
+                        </div>
+                        <div class="col-md-12 mb-2  border-bottom">
+                            Course Duration
+                            <b class="d-block ps-3  border-bottom"><%=course.course_duration %></b>
+                        </div>
+                        <div class="col-md-12 mb-2  border-bottom">
+                            Course Price
+                            <b class="d-block ps-3  border-bottom"><%=course.course_price %></b>
+                        </div>
+                        <div class="col-md-12 mb-2  border-bottom">
+                            Course Mentor
+                            <b class="d-block ps-3  border-bottom"><%=course.course_mentor %></b>
+                        </div>
+                        <div class="col-md-12 mb-2  border-bottom">
+                            Course Link
+                            <b class="d-block ps-3  border-bottom"><%=(course.course_link)?course.course_link:'--' %></b>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            Course Platform
+                            <b class="d-block ps-3  border-bottom"><%=course.course_platform %></b>
+                        </div>
+                        <div class="col-md-12 mb-2  border-bottom">
+                            Course Image
+                            <a href="" onclick="open_file('/uploads/<%=course.course_img %>')">
+                            <b class="d-block ps-3">view</b>
+                        </a>
+                        </div>
+                        <div class="col-md-12 mb-2  border-bottom">
+                            Course Video
+                            <a href="" onclick="open_file('/uploads/<%=course.course_sample_video %>')">
+                            <b class="d-block ps-3">open</b>
+                        </a>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="container-fliud">
+                    222
+                </div>
+            </div>
+            <div class="col-md-12 mb-2 border-bottom">
+                Course Details
+                <b class="d-block ps-3"><%-course.course_details.replaceAll("\n","<br>") %></b>
+            </div>
+        </div>
+    </div>
+<script>
+    function open_file(img_path){
+        window.open(img_path,"","height=300px;width=500px;");
+    }
+</script>
+
+    <%- include("footer.ejs")%>

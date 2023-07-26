@@ -1,0 +1,102 @@
+<%- include("navbar.ejs")%>
+    <style>
+        .carousel-indicators {
+
+            width: 100%;
+            margin-left: 0px;
+            justify-content: right;
+            padding-right: 30px;
+        }
+
+        .carousel-indicators li {
+            background-color: gray;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .carousel-indicators .active {
+            background-color: black;
+        }
+
+        .carousel-caption {
+            background-image: linear-gradient(-60deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 30%);
+            position: absolute;
+            left: 0px;
+            width: 70%;
+            height: 100%;
+            top: 0px;
+            display: flex;
+            padding-left: 10%;
+            align-items: center;
+
+        }
+    </style>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <% for(var i=0;i<slides.length;i++) { %>
+                <li data-target="#demo" data-slide-to="<%=i%>" class="<%=(i==0)? 'active':''%>"></li>
+                <% }%>
+
+        </ul>
+        <div class="carousel-inner">
+            <% for(var i=0;i<slides.length;i++) { %>
+                <div class="carousel-item <%=(i==0)? 'active':''%>">
+                    <img src="/uploads/<%=slides[i].slider_img%>" alt="Los Angeles" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <div class="center_div">
+                            <h3>
+                                <%=slides[i].slider_title%>
+                            </h3>
+                            <p>
+                                <a href="<%=slides[i].slider_byn_link%>" target="_blank">
+                                    <button class="btn btn-primary">
+                                        <%=slides[i].slider_btn_text%>
+                                    </button></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <% }%>
+
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 mb-5">
+                <h3 class="text-center">-Newly Added Courses-</h3>
+            </div>
+            <% for(var i=courses.length-3;i<courses.length;i++){%>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-heder">
+                            <b>
+                                <%=courses[i].course_name%>
+                            </b>
+                        </div>
+                        <div class="card-body m-0 p-0">
+                            <img src="/uploads/<%=courses[i].course_img%>" width="100%">
+
+                        </div>
+                        <div class="card-footer bg-dark text-white">
+                            <h3>&#8377;<%=courses[i].course_price%>
+                                    <a href="/course_details/<%=courses[i].course_id%>">
+                                        <button class="btn btn-outline-light float-right">View Details</button>
+                                    </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+    </div>
+    <br>
+    
+ <%- include("footer.ejs")%>

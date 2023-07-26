@@ -1,0 +1,49 @@
+<%- include("navbar.ejs")%>
+<br>
+<br>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+        <h1>My Courses</h1>
+        <br>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-borderd">
+                <tr>
+                    <th>Courses Name</th>
+                    <th>Purchase Date</th>
+                    <th>Amount</th>
+
+                </tr>
+                <% for(var i=0;i<courses_list.length;i++){%>
+                  <tr>
+                   <td><%=courses_list[i].course_name%></td>
+                   <td><%=courses_list[i].purchase_date%></td>
+                   <td>&#8377;<%=courses_list[i].amount%>.00</td>
+                  </tr>    
+                
+               <% }%>
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<%- include("footer.ejs")%>

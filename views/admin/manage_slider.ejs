@@ -1,0 +1,64 @@
+<%- include("navbar.ejs")%>
+<form action="/admin/save_slider" method="post" enctype="multipart/form-data">
+<div class="container-fluid p-5 bg-white ">
+    <div class="row">
+        <div class="col-md-12  text-center">
+            <h3>Manage Slider</h3>
+        </div>
+        <div class="col-md-6 mt-3">
+            Select Image<input type="file" name="slider_img" class="form-control" accept="image/*">
+        </div>
+        <div class="col-md-6 mt-3">
+            Enter Slider Title
+            <input type="text" name="slider_title" class="form-control">
+        </div>
+        <div class="col-md-6 mt-3">
+            Enter Button Text
+            <input type="text" name="slider_btn_text" class="form-control">
+        </div>
+        <div class="col-md-6 mt-3">
+            Enter Slider button link
+            <input type="text" name="slider_btn_link" class="form-control">
+        </div>
+        <div class="col-md-12  mt-3 text-center" >
+         <button class="btn btn-primary">save slider</button>
+        </div>
+    </div>
+</div>
+</form>
+<br>
+<hr>
+<br>
+<div class="container-fluid">
+<table class="table table-sm table-bordered">
+    <tr>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>SN</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Button text</th>
+        <th>Button link</th>
+    </tr>
+    <% for(var i=0;i<slides.length;i++)
+    {
+        %>
+        <tr>
+            <td width="5%" style="white-space: nowrap;">
+                <a href="/admin/edit_slide/<%=slides[i].slider_id%>"><button class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+            </td>
+            <td width="5%" style="white-space: nowrap;">
+                <a href="/admin/delete_slide/<%=slides[i].slider_id %>"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+            </td>
+         <td><%=i+1%></td>
+         <td width="150px">
+            <img src="/uploads/<%=slides[i].slider_img %>" width="150px" >
+            </td>
+         <td><%=slides[i].slider_title %></td>
+         <td><%=slides[i].slider_btn_text %></td>
+         <td><%=slides[i].slider_btn_link %></td>
+        </tr>
+    <%}%>
+</table>
+</div>
+<%- include("footer.ejs")%>

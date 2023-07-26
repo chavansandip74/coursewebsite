@@ -1,0 +1,38 @@
+<%- include("navbar.ejs")%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <div class="container-fluid p-5 bg-white ">
+        <div class="row">
+            <div class="col-md-12  text-center">
+                <h1 class="text-center">Course Monthly Orderes</h1>
+                <canvas id="myChart" style="width:100%;max-width:700px;margin-left: 100px;"></canvas>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const xValues = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jule', 'Agu', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const yValues = ['<%=jan%>', '<%=feb%>', '<%=mar%>', '<%=apr%>', '<%=may%>', '<%=june%>', '<%=jule%>', '<%=aug%>', '<%=sep%>', '<%=oct%>', '<%=nov%>', '<%=dec%>',];
+
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                scales: {
+                    yAxes: [{ ticks: { min: 0, max: 10 } }],
+                }
+            }
+        });
+    </script>
+
+    <%- include("footer.ejs")%>

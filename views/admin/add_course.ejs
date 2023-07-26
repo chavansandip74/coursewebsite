@@ -1,0 +1,66 @@
+<%- include("navbar.ejs")%>
+    <form action="/admin/save_course" method="post" enctype="multipart/form-data">
+        <div class="container-fluid p-5 bg-white ">
+            <div class="row">
+                <div class="col-md-12  text-center">
+                    <h3>Add new course</h3>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Name*
+                    <input type="text" name="course_name" class="form-control" required>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Category*
+                    <select name="course_category_id" class="form-control" required>
+                        <option disabled selected value="">Select Category</option>
+                        <% for(var i=0;i<cat_list.length;i++){ %>
+                            <option value="<%=cat_list[i].category_id%>">
+                                <%=cat_list[i].category_name%>
+                            </option>></option>
+                            <%}%>
+                    </select>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Duration
+                    <input type="text" name="course_duration" class="form-control">
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Price*
+                    <input type="number" name="course_price" class="form-control" required>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Image*
+                    <input type="file" name="course_img" class="form-control" accept="Image/*" required>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Sample Video
+                    <input type="file" name="course_sample_video" class="form-control" accept="Video/*">
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Mentor
+                    <input type="text" name="course_mentor" class="form-control">
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Link
+                    <input type="text" name="course_link" class="form-control">
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Platform*
+                   <select name="course_platform" class="form-control" required>
+                    <option disabled selected >Select Platform</option>
+                    <option >Online Live</option>
+                    <option >Online Recorded</option>
+                    <option >Classroom</option>
+                   </select>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Course Details
+                    <textarea name="course_details" class="form-control"></textarea>
+                </div>
+                <div class="col-md-6 mt-3 text-center">
+                    <button class="btn btn-primary ">SAVE Course</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <%- include("footer.ejs")%>

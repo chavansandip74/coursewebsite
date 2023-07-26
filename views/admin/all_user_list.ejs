@@ -1,0 +1,38 @@
+<%- include("navbar.ejs")%>
+    <div class="container-fluid p-5 bg-white ">
+        <div class="row">
+            <div class="col-md-12  text-center">
+                <h1 class="text-center">All User List</h1>
+                <br>
+        
+            </div>
+            
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm">
+                    <tr>
+                        <th>SN</th>
+                        <th>User Name</th>
+                        <th>Usesr Mobile</th>
+                        <th>User Email</th>
+                        <th>User Password</th>
+                        
+                    </tr>
+                    <% for(var i=0;i<user.length;i++)
+                    {
+                        %>
+                        <tr>
+                       
+                            <td><%=i+1%></td>
+                            <td><%=user[i].user_name%></td>
+                            <td><%=user[i].user_mobile%></td>
+                            <td><%=user[i].user_email%></td>
+                            <td><%=user[i].user_password%></td>
+                            
+                        </tr>
+                   <% }%>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <%- include("footer.ejs")%>
