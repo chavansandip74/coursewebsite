@@ -9,7 +9,9 @@
   "name": "courses",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+"devDependencies": {
+    "mocha": "^10.2.0"
+  },
   "scripts": {
   "test": "mocha"
      },
