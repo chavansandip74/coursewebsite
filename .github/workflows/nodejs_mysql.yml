@@ -1,4 +1,4 @@
-name: Node.js and MySQL CI/CD
+name: Node.js and MySQL CI/CD (Windows)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
         run: npm test
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -41,6 +41,13 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          # Add commands here to deploy your Node.js application, including MySQL configuration.
-          # You might use SSH or other deployment methods.
+          # Replace with your deployment commands for Windows environment
 
+          # Example: Deploy using PowerShell
+          # .\deploy.ps1
+
+          # Example: MySQL Configuration (if needed)
+          # Replace <your-mysql-connection-details> with your actual MySQL connection details
+          # .\mysql.exe -u <username> -p<password> -h <hostname> -e "CREATE DATABASE IF NOT EXISTS <database_name>"
+
+          # Add more deployment and MySQL commands as needed
